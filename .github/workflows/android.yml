@@ -40,7 +40,7 @@ jobs:
         run: gradle --no-daemon --max-workers=2 :app:testDebugUnitTest
 
       - name: Build debug APK
-        run: gradle --no-daemon --max-workers=2 :app:assembleDebug
+        run: gradle --no-daemon --max-workers=2 -Dorg.gradle.jvmargs='-Xmx3g -XX:MaxMetaspaceSize=1g -Dfile.encoding=UTF-8' :app:assembleDebug
 
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
